@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { retrievePrediction } from '../api/retrievePrediction';
+import { retrieveInfo } from '../api/retrieveInfo';
 
-
-const Prediction = ({ name }) => {
+const InfoPanel = ({ name }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +9,7 @@ const Prediction = ({ name }) => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const result = await retrievePrediction(name);
+        const result = await retrieveInfo(name);
         setData(result);
       } catch (error) {
         setError(error);
@@ -68,4 +67,4 @@ const Prediction = ({ name }) => {
   )
 }
 
-export default Prediction
+export default InfoPanel
