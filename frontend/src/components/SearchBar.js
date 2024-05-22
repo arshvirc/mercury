@@ -68,8 +68,7 @@ const SearchBar = () => {
 
 
   return (
-    <section className=''>
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col items-center relative'>
         <form className='flex flex-row gap-4 w-[60%] bg-white rounded-lg m-4 px-4 py-2 items-center'>
           <CiSearch />
           <input
@@ -81,7 +80,8 @@ const SearchBar = () => {
             className='outline-none'
           />
         </form>
-        <ul className='flex flex-col bg-white w-[60%] rounded-lg items-start'>
+        {options.length > 0 && (
+        <ul className='flex flex-col bg-white w-[60%] rounded-lg items-start z-10 top-full absolute'>
           {options.map((option, id) => {
             return (
               <div className='flex flex-col w-full' key={id}>
@@ -99,8 +99,8 @@ const SearchBar = () => {
             )
           })}
         </ul>
+        )}
       </div>
-    </section>
   )
 }
 export default SearchBar

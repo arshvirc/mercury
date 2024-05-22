@@ -7,7 +7,7 @@ import PlayerInfo from './pages/PlayerInfo';
 function App() {
 
   return (
-    <div className="mx-auto h-full px-4 py-4 font-sans md:px-4 md:py-4 1g:px-8 lg:py-4">
+    <div className="mx-auto h-full px-4 py-4 font-sans md:px-4 md:py-4 1g:px-8 lg:py-4 bg-primary">
       <Router>
         <Routes>
           <Route path="" element={<LandingPage />}/>

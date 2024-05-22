@@ -8,7 +8,7 @@ const LandingPage = () => {
         <h1 className='font-bold text-5xl text-accent'>Mercury</h1>
         <p className='pt-4'>Find out what you should be betting</p>
       </div>
-      <SearchBar className='h-screen'/>
+      <SearchBar className='h-screen border'/>
     </section>
   )
 }
