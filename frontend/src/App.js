@@ -10,7 +10,7 @@ import Favourites from './pages/Favourites';
 import Optimization from './pages/Optimization';
 import Team from './pages/Team';
 import Home from './pages/Home';
-import HeaderLayout from './components/HeaderLayout';
+import SideBar from './components/SideBar';
 
 function App() {
 
@@ -24,9 +24,9 @@ function App() {
               path="/home/:type"
               element={
                 <PrivateRoute>
-                  <HeaderLayout>
+                  <SideBar>
                     <Home />
-                  </HeaderLayout>
+                  </SideBar>
                 </PrivateRoute>
               }
             />
@@ -34,9 +34,9 @@ function App() {
               path="/team/:team"
               element={
                 <PrivateRoute>
-                  <HeaderLayout>
+                  <SideBar>
                     <Team />
-                  </HeaderLayout>
+                  </SideBar>
                 </PrivateRoute>
               }
             />
@@ -44,9 +44,9 @@ function App() {
               path="/favourites/:type"
               element={
                 <PrivateRoute>
-                  <HeaderLayout>
+                  <SideBar>
                     <Favourites />
-                  </HeaderLayout>
+                  </SideBar>
                 </PrivateRoute>
               }
             />
@@ -54,9 +54,9 @@ function App() {
               path="/optimization/:type"
               element={
                 <PrivateRoute>
-                  <HeaderLayout>
+                  <SideBar>
                     <Optimization />
-                  </HeaderLayout>
+                  </SideBar>
                 </PrivateRoute>
               }
             />

@@ -28,23 +28,23 @@ const Header = () => {
 
 
   return (
-    <header className="py-7 bg-white flex flex-col">
-      <div className='flex flex-row justify-between text-xl z-30 sm:px-8'>
+    <header className="bg-slate-500 flex flex-col">
+      <div className='flex flex-col justify-between text-xl z-30 p-2 bg-blue-300 h-screen'>
         
-        <div className='flex flex-row gap-2 items-center justify-center'>
+        <div className='flex flex-col gap-2 items-center justify-center'>
           <button onClick={toggleMenu} className="sm:hidden">
             {isOpen ? (<IoMdClose />): (<HiMenuAlt2 />)}
           </button>
           <Link to='/home/all'> 
             <h1>Mercury</h1>
           </Link>
-          <div className='sm:flex flex-row gap-2 items-center justify-center text-sm hidden pl-24'>
+          <div className='sm:flex flex-row gap-2 items-center justify-center text-sm hidden'>
             <Link to='/favourites/all' className=' px-4 py-2 text-gray-800 hover:bg-gray-200'> Favourites </Link>
             <Link to='/optimization/all' className='px-4 py-2 text-gray-800 hover:bg-gray-200'> Optimize </Link>
           </div>
         </div>
         <div className='flex flex-row gap-2 items-center justify-center'>
-          <button className='w-full flex flex-row justify-center items-center gap-4 bg-slate-800 px-1 py-1 text-white text-sm rounded-3xl border' onClick={handleSignOut}>
+          <button className=' flex flex-row justify-center items-center gap-4 bg-slate-800 px-1 py-1 text-white text-sm rounded-3xl border' onClick={handleSignOut}>
             Sign Out
           </button>
         </div>
