@@ -2,43 +2,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@layer components {
+  .btn-primary {
+    @apply w-full flex flex-row justify-center items-center gap-4 bg-white py-2 text-black rounded-3xl border;
+  }
+}
+
 .App {
   text-align: center;
 }
 
-/*
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  @apply font-poppins;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

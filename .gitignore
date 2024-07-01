@@ -40,6 +40,7 @@ backend/*.pyd
 backend/.pytest_cache/
 backend/instance/
 backend/migrations/
+backend/*.json
 
 # Flask specific
 backend/app.db

@@ -1,20 +1,58 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import LandingPage from './pages/LandingPage';
-import PlayerInfo from './pages/PlayerInfo';
+import SignIn from './pages/SignUp';
+import LogIn from './pages/LogIn';
+import { AuthProvider } from './contexts/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
+import ErrorPage from './pages/ErrorPage';
+import Favourites from './pages/Favourites';
+import Optimization from './pages/Optimization';
+import Home from './pages/Home';
+import HeaderLayout from './components/HeaderLayout';
 
 function App() {
 
   return (
-    <div className="mx-auto h-full px-4 py-4 font-sans md:px-4 md:py-4 1g:px-8 lg:py-4 bg-primary">
-      <Router>
-        <Routes>
-          <Route path="" element={<LandingPage />}/>
-          <Route path="/player/:name" element={<PlayerInfo />} />
+    <Router>
+      <AuthProvider>
+        <Routes>  
+            <Route path="/login" element={<LogIn />}/>
+            <Route path="/signup" element={<SignIn />}/>
+            <Route
+              path="/home/:type"
+              element={
+                <PrivateRoute>
+                  <HeaderLayout>
+                    <Home />
+                  </HeaderLayout>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/favourites/:type"
+              element={
+                <PrivateRoute>
+                  <HeaderLayout>
+                    <Favourites />
+                  </HeaderLayout>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/optimization/:type"
+              element={
+                <PrivateRoute>
+                  <HeaderLayout>
+                    <Optimization />
+                  </HeaderLayout>
+                </PrivateRoute>
+              }
+            />
+            <Route path="*" element={<ErrorPage />} />
         </Routes>
-      </Router>
-    </div>
+      </AuthProvider>
+    </Router>
   );
 }
 

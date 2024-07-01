@@ -3,30 +3,35 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['poppins', 'sans-serif'],
+      }, 
       colors: {
         primary: {
-          light: '#3B82F6',  
-          DEFAULT: '#A91D3A', 
-          dark: '#1E3A8A',    
+          light: '#EBF8FF',
+          DEFAULT: '#4299E1',
+          dark: '#2B6CB0'
         },
         secondary: {
-          light: '#34D399',  // Tailwind's default green-400
-          DEFAULT: '#10B981', // Tailwind's default green-500
-          dark: '#059669',    // Tailwind's default green-600
+          light: '#F7FAFC',
+          DEFAULT: '#EDF2F7',
+          dark: '#E2E8F0'
         },
         accent: {
-          light: '#F59E0B',  // Tailwind's default yellow-500
-          DEFAULT: '#EEEEEE', // Tailwind's default yellow-600
-          dark: '#B45309',    // Tailwind's default yellow-700
+          light: '#F7FAFC',
+          DEFAULT: '#A0AEC0',
+          dark: '#718096'
         },
         neutral: {
-          light: '#F3F4F6',  // Tailwind's default gray-100
-          DEFAULT: '#9CA3AF', // Tailwind's default gray-400
-          dark: '#111827',    // Tailwind's default gray-900
-        },
+          light: '#F7FAFC',
+          DEFAULT: '#1A202C',
+          dark: '#2D3748'
+        }
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
 
