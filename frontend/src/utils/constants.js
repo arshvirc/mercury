@@ -98,4 +98,12 @@ const all_players = [
   "Carmelo Anthony",
 ];
 
+
+export const stats_type = [
+  { label: 'All', value: '/all' },
+  { label: 'Points', value: '/pts' },
+  { label: 'Rebounds', value: '/reb' },
+  { label: 'Assists', value: '/ast' },
+];
+
 export default all_players

@@ -30,3 +30,14 @@ export const getFavourites = async (uid) => {
     throw error;
   }
 };
+
+
+export const retrieveTeams = async () => {
+  try {
+    const response = await apiClient.get('/teams');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data from Info Endpoint:', error);
+    throw error;
+  }
+};

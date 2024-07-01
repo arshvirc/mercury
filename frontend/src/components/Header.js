@@ -44,7 +44,7 @@ const Header = () => {
           </div>
         </div>
         <div className='flex flex-row gap-2 items-center justify-center'>
-          <button className='w-full flex flex-row justify-center items-center gap-4 bg-black px-2 py-2 text-white text-sm rounded-3xl border' onClick={handleSignOut}>
+          <button className='w-full flex flex-row justify-center items-center gap-4 bg-slate-800 px-1 py-1 text-white text-sm rounded-3xl border' onClick={handleSignOut}>
             Sign Out
           </button>
         </div>

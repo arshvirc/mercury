@@ -1,15 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { IoMdArrowDropdown } from "react-icons/io";
 
-const Dropdown = ({ options, selectedOption, onSelect }) => {
+const Dropdown = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
   const dropdownRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
   const handleOptionClick = (option) => {
-    onSelect(option);
+    setSelectedOption(option);
+    const page = location.pathname.split('/')[1].toString()
+    navigate(`/${page}${option.value}`)
     setIsOpen(false);
   };
 
@@ -30,17 +37,19 @@ const Dropdown = ({ options, selectedOption, onSelect }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={handleToggle}
-        className="bg-blue-500 text-white rounded"
+        className="border-grey-500 border px-3 rounded-lg gap-3 py-2 flex flex-row justify-center items-center"
       >
-        {selectedOption ? selectedOption.label : 'Select an option'}
+        {selectedOption ? selectedOption.label : location.pathname.split('/')[2].toString()}
+        <IoMdArrowDropdown />
+
       </button>
       {isOpen && (
-        <ul className="absolute bg-white border mt-2 rounded shadow-lg w-[1/2]">
+        <ul className="absolute bg-white border mt-2 rounded-xl shadow-lg w-[1/2] px-2 py-3 z-50">
           {options.map((option) => (
             <li
               key={option.value}
               onClick={() => handleOptionClick(option)}
-              className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+              className="px-4 py-2 cursor-pointer hover:bg-gray-200 rounded-md text-sm font-poppins"
             >
               {option.label}
             </li>
@@ -51,29 +60,4 @@ const Dropdown = ({ options, selectedOption, onSelect }) => {
   );
 };
 
-const options = [
-  { label: 'All', value: '/all' },
-  { label: 'Points', value: '/pts' },
-  { label: 'Rebounds', value: '/reb' },
-  { label: 'Assists', value: '/ast' },
-];
-
-const StatFilter = () => {
-  const [selectedOption, setSelectedOption] = useState(options[0]);
-
-  const handleSelect = (option) => {
-    setSelectedOption(option);
-  };
-
-  return (
-    <div className="">
-      <Dropdown
-        options={options}
-        selectedOption={selectedOption}
-        onSelect={handleSelect}
-      />
-    </div>
-  );
-};
-
-export default StatFilter;
+export default Dropdown;

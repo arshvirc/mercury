@@ -17,8 +17,6 @@ def get_rolling_suggestions(team_name):
     response.headers['Content-Type'] = 'application/json'
     return response
 
-
-
 @suggestions_bp.route('/test-suggestions', methods=['POST'])
 def test_suggestions():
     body = request.get_json()

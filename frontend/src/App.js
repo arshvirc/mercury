@@ -8,6 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import ErrorPage from './pages/ErrorPage';
 import Favourites from './pages/Favourites';
 import Optimization from './pages/Optimization';
+import Team from './pages/Team';
 import Home from './pages/Home';
 import HeaderLayout from './components/HeaderLayout';
 
@@ -25,6 +26,16 @@ function App() {
                 <PrivateRoute>
                   <HeaderLayout>
                     <Home />
+                  </HeaderLayout>
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/team/:team"
+              element={
+                <PrivateRoute>
+                  <HeaderLayout>
+                    <Team />
                   </HeaderLayout>
                 </PrivateRoute>
               }

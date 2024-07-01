@@ -15,6 +15,9 @@ def create_app():
     from app.routes.fav import fav_bp
     app.register_blueprint(fav_bp)
 
+    from app.routes.info import info_bp
+    app.register_blueprint(info_bp)
+
     return app
 
 

@@ -3,10 +3,10 @@ import { CiSearch } from "react-icons/ci";
 import { GiPlagueDoctorProfile } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom'
 
-import all_players from '../utils/constants'
+// import all_players from '../utils/constants'
 
 
-const SearchBar = () => {
+const SearchBar = ({ results }) => {
   const [query, setQuery] = useState("")
   const [options, setOptions] = useState([])
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(-1);
@@ -19,7 +19,7 @@ const SearchBar = () => {
       setOptions([]);
       setSelectedOptionIndex(-1);
     } else {
-      const filteredResults = all_players.filter((name) =>
+      const filteredResults = results.filter((name) =>
         name.toLowerCase().includes(value.toLowerCase())
       );
       setOptions(filteredResults);
@@ -54,7 +54,7 @@ const SearchBar = () => {
         e.preventDefault()
         setQuery("")
         setOptions([])
-        navigate(`/player/${options[selectedOptionIndex]}`);
+        navigate(`../team/${options[selectedOptionIndex]}`);
       }
     }
   };
@@ -62,13 +62,13 @@ const SearchBar = () => {
   const handleOptionClick = (e, option) => {
     setQuery("")
     setOptions([])
-    navigate(`/player/${option}`);
+    navigate(`/team/${option}`);
     // onSubmit(option)
   };
 
 
   return (
-      <div className='flex flex-col items-center relative'>
+      <div className='flex flex-col items-center relative bg-black'>
         <form className='flex flex-row gap-4 w-[60%] bg-white rounded-lg m-4 px-4 py-2 items-center'>
           <CiSearch />
           <input
@@ -76,7 +76,7 @@ const SearchBar = () => {
             value={query}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            placeholder='Enter player name'
+            placeholder='Enter team name'
             className='outline-none'
           />
         </form>

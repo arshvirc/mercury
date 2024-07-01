@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../contexts/AuthContext';
 import PropCard from '../components/PropCard';
 import { getFavourites } from '../api';
+import { useParams } from 'react-router-dom';
 
 const Favourites = () => {
   const { currentUser } = useAuth();
   const [cards, setCards] = useState([]);
-  // console.log("BYYYEEE UN FAV")
+  const { type } = useParams();
 
   useEffect(() => {
     const fetchTeamCards = async () => {
